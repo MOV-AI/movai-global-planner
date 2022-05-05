@@ -1,11 +1,21 @@
-ROS Navigation Stack
+ROS Navigation Stack (Fork by MOV.AI)
 ====================
 
-A 2D navigation stack that takes in information from odometry, sensor
-streams, and a goal pose and outputs safe velocity commands that are sent
-to a mobile base.
+# movai_ros_planner
 
- * AMD64 Debian Job Status: [![Build Status](http://build.ros.org/buildStatus/icon?job=Mbin_uB64__navigation__ubuntu_bionic_amd64__binary)](http://build.ros.org/job/Mbin_uB64__navigation__ubuntu_bionic_amd64__binary/)
+**main branch: main**
+
+## Continuous    Integration Status
+
+| Package         | Melodic         | Noetic | 
+| :---:           | :---:           | :---:  |
+| movai_ros_planner      | [![Deploy - On branch main/release Push](https://github.com/MOV-AI/movai_ros_planner/actions/workflows/DeployOnMergeMain.yml/badge.svg)](https://github.com/MOV-AI/movai_ros_planner/actions/workflows/DeployOnMergeMain.yml) | [![Deploy - On branch main/release Push](https://github.com/MOV-AI/movai_ros_planner/actions/workflows/DeployOnMergeMain.yml/badge.svg)](https://github.com/MOV-AI/movai_ros_planner/actions/workflows/DeployOnMergeMain.yml) | 
+
+
+## Movai Navigation
+
+Complete Docs here
+
 
 Related stacks:
 
