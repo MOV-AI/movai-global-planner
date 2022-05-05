@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(global_planner)
+project(movai_ros_planner)
 
 find_package(catkin REQUIRED
   COMPONENTS
@@ -14,10 +14,6 @@ find_package(catkin REQUIRED
     roscpp
     tf2_geometry_msgs
     tf2_ros
-)
-
-generate_dynamic_reconfigure_options(
-  cfg/GlobalPlanner.cfg
 )
 
 catkin_package(
