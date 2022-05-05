@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(global_planner)
+project(movai_ros_planner)
 
 find_package(catkin REQUIRED
   COMPONENTS
@@ -14,10 +14,6 @@ find_package(catkin REQUIRED
     roscpp
     tf2_geometry_msgs
     tf2_ros
-)
-
-generate_dynamic_reconfigure_options(
-  cfg/GlobalPlanner.cfg
 )
 
 catkin_package(
@@ -52,26 +48,33 @@ add_library(${PROJECT_NAME}
 add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
 
-add_executable(planner
-  src/plan_node.cpp
-)
-add_dependencies(planner ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(planner
-  ${PROJECT_NAME}
-  ${catkin_LIBRARIES}
-)
+set (PACKAGE_DESTINATION ${CMAKE_INSTALL_PREFIX}/share/${PROJECT_NAME}_metadata)
+
+# add_dependencies(planner ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+# target_link_libraries(planner
+#   ${PROJECT_NAME}
+#   ${catkin_LIBRARIES}
+# )
 
 install(TARGETS ${PROJECT_NAME}
   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION})
 
-install(TARGETS planner
-  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
+# install(TARGETS planner
+#   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
-install(DIRECTORY include/${PROJECT_NAME}/
-  DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
-  PATTERN ".svn" EXCLUDE)
+install(DIRECTORY include/
+    DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+    FILES_MATCHING PATTERN "*.h"
+    PATTERN ".svn" EXCLUDE
+)
+
+install(DIRECTORY src/
+    DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
+    FILES_MATCHING PATTERN "*.h"
+    PATTERN ".svn" EXCLUDE
+)
 
 install(FILES bgp_plugin.xml
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
