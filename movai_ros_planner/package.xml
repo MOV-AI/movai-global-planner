@@ -6,13 +6,12 @@
   <description>
      A path planner library and node.
   </description>
-  <maintainer email="davidvlu@gmail.com">David V. Lu!!</maintainer>
-  <maintainer email="mfergs7@gmail.com">Michael Ferguson</maintainer>
-  <maintainer email="ahoy@fetchrobotics.com">Aaron Hoy</maintainer>
+  <maintainer email="vicente.queiroz@mov.ai">Vicente</maintainer>
+  <maintainer email="didier.alexandre@mov.ai">Didier</maintainer>
   <license>BSD</license>
 
   <author>David Lu!!</author>
-  <url>http://wiki.ros.org/global_planner</url>
+  <url>https://github.com/MOV-AI/movai_ros_planner</url>
 
   <buildtool_depend>catkin</buildtool_depend>
 
