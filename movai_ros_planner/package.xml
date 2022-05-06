@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
-  <name>movai_ros_planner</name>
+  <name>movai_ros_planner_public</name>
   <version>0.0.1</version>
   <description>
      A path planner library and node.

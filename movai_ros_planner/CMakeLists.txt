@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(movai_ros_planner)
+project(movai_ros_planner_public)
 
 find_package(catkin REQUIRED
   COMPONENTS
