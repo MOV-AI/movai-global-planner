@@ -12,7 +12,7 @@
   <license>BSD</license>
 
   <author>David Lu!!</author>
-  <url>http://wiki.ros.org/global_planner</url>
+  <url>https://github.com/MOV-AI/movai_ros_planner_public</url>
 
   <buildtool_depend>catkin</buildtool_depend>
 
