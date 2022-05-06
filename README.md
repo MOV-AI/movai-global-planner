@@ -1,7 +1,7 @@
 ROS Navigation Stack (Fork by MOV.AI)
 ====================
 
-# movai_ros_planner_public
+# movai_ros_planner
 
 **main branch: main**
 
@@ -9,7 +9,7 @@ ROS Navigation Stack (Fork by MOV.AI)
 
 | Package         | Melodic         | Noetic | 
 | :---:           | :---:           | :---:  |
-| movai_ros_planner_public      | [![Deploy - On branch main/release Push](https://github.com/MOV-AI/movai_ros_planner_public/actions/workflows/DeployOnMergeMain.yml/badge.svg)](https://github.com/MOV-AI/movai_ros_planner_public/actions/workflows/DeployOnMergeMain.yml) | [![Deploy - On branch main/release Push](https://github.com/MOV-AI/movai_ros_planner_public/actions/workflows/DeployOnMergeMain.yml/badge.svg)](https://github.com/MOV-AI/movai_ros_planner_public/actions/workflows/DeployOnMergeMain.yml) | 
+| movai_ros_planner      | [![Deploy - On branch main/release Push](https://github.com/MOV-AI/movai_ros_planner/actions/workflows/DeployOnMergeMain.yml/badge.svg)](https://github.com/MOV-AI/movai_ros_planner/actions/workflows/DeployOnMergeMain.yml) | [![Deploy - On branch main/release Push](https://github.com/MOV-AI/movai_ros_planner/actions/workflows/DeployOnMergeMain.yml/badge.svg)](https://github.com/MOV-AI/movai_ros_planner/actions/workflows/DeployOnMergeMain.yml) | 
 
 
 ## Movai Navigation
