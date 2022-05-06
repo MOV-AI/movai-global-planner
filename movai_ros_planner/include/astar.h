@@ -43,7 +43,7 @@
 #include <vector>
 #include <algorithm>
 
-namespace ros_planner
+namespace global_planner
 {
     class Index
     {

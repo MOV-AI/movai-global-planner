@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(global_planner)
+project(movai_ros_planner)
 
 find_package(catkin REQUIRED
   COMPONENTS
@@ -69,9 +69,11 @@ install(TARGETS ${PROJECT_NAME}
 install(TARGETS planner
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
-install(DIRECTORY include/${PROJECT_NAME}/
+  install(DIRECTORY include/
   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
-  PATTERN ".svn" EXCLUDE)
+  FILES_MATCHING PATTERN "*.h"
+  PATTERN ".svn" EXCLUDE
+)
 
 install(FILES bgp_plugin.xml
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})

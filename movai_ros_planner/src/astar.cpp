@@ -38,7 +38,7 @@
 #include <astar.h>
 #include <costmap_2d/cost_values.h>
 
-namespace ros_planner
+namespace global_planner
 {
 
     AStarExpansion::AStarExpansion(PotentialCalculator *p_calc, int xs, int ys) : Expander(p_calc, xs, ys)
