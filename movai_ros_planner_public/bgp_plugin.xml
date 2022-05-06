@@ -1,7 +1,0 @@
-<library path="lib/libglobal_planner">
-	<class name="ros_planner/GlobalPlanner" type="ros_planner::GlobalPlanner" base_class_type="nav_core::BaseGlobalPlanner">
-		<description>
-		A implementation of a grid based planner using Dijkstras or A* (fork by MOVAI)
-		</description>
-    </class>
-</library>
