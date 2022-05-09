@@ -37,8 +37,8 @@
  *********************************************************************/
 #ifndef _EXPANDER_H
 #define _EXPANDER_H
-#include <global_planner/potential_calculator.h>
-#include <global_planner/planner_core.h>
+#include <potential_calculator.h>
+#include <planner_core.h>
 
 namespace global_planner {
 

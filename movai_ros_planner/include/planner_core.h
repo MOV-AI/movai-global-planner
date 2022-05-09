@@ -47,10 +47,10 @@
 #include <nav_core/base_global_planner.h>
 #include <nav_msgs/GetPlan.h>
 #include <dynamic_reconfigure/server.h>
-#include <global_planner/potential_calculator.h>
-#include <global_planner/expander.h>
-#include <global_planner/traceback.h>
-#include <global_planner/orientation_filter.h>
+#include <potential_calculator.h>
+#include <expander.h>
+#include <traceback.h>
+#include <orientation_filter.h>
 #include <global_planner/GlobalPlannerConfig.h>
 
 namespace global_planner {

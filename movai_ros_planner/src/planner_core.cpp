@@ -35,16 +35,16 @@
  * Author: Eitan Marder-Eppstein
  *         David V. Lu!!
  *********************************************************************/
-#include <global_planner/planner_core.h>
+#include <planner_core.h>
 #include <pluginlib/class_list_macros.h>
 #include <costmap_2d/cost_values.h>
 #include <costmap_2d/costmap_2d.h>
 
-#include <global_planner/dijkstra.h>
-#include <global_planner/astar.h>
-#include <global_planner/grid_path.h>
-#include <global_planner/gradient_path.h>
-#include <global_planner/quadratic_calculator.h>
+#include <dijkstra.h>
+#include <astar.h>
+#include <grid_path.h>
+#include <gradient_path.h>
+#include <quadratic_calculator.h>
 
 //register this planner as a BaseGlobalPlanner plugin
 PLUGINLIB_EXPORT_CLASS(global_planner::GlobalPlanner, nav_core::BaseGlobalPlanner)
