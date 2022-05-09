@@ -38,7 +38,7 @@
 #ifndef _GRADIENT_PATH_H
 #define _GRADIENT_PATH_H
 
-#include<global_planner/traceback.h>
+#include<traceback.h>
 #include <math.h>
 #include <algorithm>
 

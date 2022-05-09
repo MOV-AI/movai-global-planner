@@ -38,7 +38,7 @@
 #ifndef _GRID_PATH_H
 #define _GRID_PATH_H
 #include<vector>
-#include<global_planner/traceback.h>
+#include<traceback.h>
 
 namespace global_planner {
 
