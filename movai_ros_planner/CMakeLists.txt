@@ -5,7 +5,6 @@ find_package(catkin REQUIRED
   COMPONENTS
     angles
     costmap_2d
-    dynamic_reconfigure
     geometry_msgs
     nav_core
     navfn
@@ -16,16 +15,11 @@ find_package(catkin REQUIRED
     tf2_ros
 )
 
-generate_dynamic_reconfigure_options(
-  cfg/GlobalPlanner.cfg
-)
-
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES ${PROJECT_NAME}
   CATKIN_DEPENDS
     costmap_2d
-    dynamic_reconfigure
     geometry_msgs
     nav_core
     navfn

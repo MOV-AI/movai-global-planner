@@ -46,12 +46,10 @@
 #include <vector>
 #include <nav_core/base_global_planner.h>
 #include <nav_msgs/GetPlan.h>
-#include <dynamic_reconfigure/server.h>
 #include <potential_calculator.h>
 #include <expander.h>
 #include <traceback.h>
 #include <orientation_filter.h>
-#include <global_planner/GlobalPlannerConfig.h>
 
 namespace global_planner {
 
@@ -201,10 +199,6 @@ class GlobalPlanner : public nav_core::BaseGlobalPlanner {
         float convert_offset_;
 
         bool outline_map_;
-
-        dynamic_reconfigure::Server<global_planner::GlobalPlannerConfig> *dsrv_;
-        void reconfigureCB(global_planner::GlobalPlannerConfig &config, uint32_t level);
-
 };
 
 } //end namespace global_planner

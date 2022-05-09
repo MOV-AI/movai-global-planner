@@ -85,8 +85,6 @@ GlobalPlanner::~GlobalPlanner() {
         delete planner_;
     if (path_maker_)
         delete path_maker_;
-    if (dsrv_)
-        delete dsrv_;
 }
 
 void GlobalPlanner::initialize(std::string name, costmap_2d::Costmap2DROS* costmap_ros) {
@@ -148,25 +146,10 @@ void GlobalPlanner::initialize(std::string name, costmap_2d::Costmap2D* costmap,
 
         make_plan_srv_ = private_nh.advertiseService("make_plan", &GlobalPlanner::makePlanService, this);
 
-        dsrv_ = new dynamic_reconfigure::Server<global_planner::GlobalPlannerConfig>(ros::NodeHandle("~/" + name));
-        dynamic_reconfigure::Server<global_planner::GlobalPlannerConfig>::CallbackType cb = boost::bind(
-                &GlobalPlanner::reconfigureCB, this, _1, _2);
-        dsrv_->setCallback(cb);
-
         initialized_ = true;
     } else
         ROS_WARN("This planner has already been initialized, you can't call it twice, doing nothing");
 
-}
-
-void GlobalPlanner::reconfigureCB(global_planner::GlobalPlannerConfig& config, uint32_t level) {
-    planner_->setLethalCost(config.lethal_cost);
-    path_maker_->setLethalCost(config.lethal_cost);
-    planner_->setNeutralCost(config.neutral_cost);
-    planner_->setFactor(config.cost_factor);
-    publish_potential_ = config.publish_potential;
-    orientation_filter_->setMode(config.orientation_mode);
-    orientation_filter_->setWindowSize(config.orientation_window_size);
 }
 
 void GlobalPlanner::clearRobotCell(const geometry_msgs::PoseStamped& global_pose, unsigned int mx, unsigned int my) {
