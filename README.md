@@ -14,7 +14,7 @@ ROS Navigation Stack (Fork by MOV.AI)
 
 ## Movai Navigation
 
-Complete Docs here
+Complete Docs here.
 
 
 Related stacks:
