@@ -195,6 +195,7 @@ bool GlobalPlanner::worldToMap(double wx, double wy, double& mx, double& my) {
 
 bool GlobalPlanner::makePlan(const geometry_msgs::PoseStamped& start, const geometry_msgs::PoseStamped& goal,
                            std::vector<geometry_msgs::PoseStamped>& plan) {
+    std::cout << ":::::::::::::::::::::::::::::::::::::MOVAI_ROS_PLANNER::::::::::::::::::::::::::::::" << std::endl;
     return makePlan(start, goal, default_tolerance_, plan);
 }
 
