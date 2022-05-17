@@ -35,10 +35,10 @@
  * Author: Eitan Marder-Eppstein
  *         David V. Lu!!
  *********************************************************************/
-#include <astar.h>
+#include <movai_ros_planner/astar.h>
 #include <costmap_2d/cost_values.h>
 
-namespace global_planner
+namespace movai_ros_planner
 {
 
     AStarExpansion::AStarExpansion(PotentialCalculator *p_calc, int xs, int ys) : Expander(p_calc, xs, ys)
@@ -99,4 +99,4 @@ namespace global_planner
         std::push_heap(queue_.begin(), queue_.end(), greater1());
     }
 
-} // end namespace global_planner
+} // end namespace movai_ros_planner

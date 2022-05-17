@@ -27,9 +27,9 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <quadratic_calculator.h>
+#include <movai_ros_planner/quadratic_calculator.h>
 
-namespace global_planner {
+namespace movai_ros_planner {
 float QuadraticCalculator::calculatePotential(float* potential, unsigned char cost, int n, float prev_potential) {
     // get neighbors
     float u, d, l, r;

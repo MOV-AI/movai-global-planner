@@ -35,12 +35,12 @@
  * Author: Eitan Marder-Eppstein
  *         David V. Lu!!
  *********************************************************************/
-#include <gradient_path.h>
+#include <movai_ros_planner/gradient_path.h>
 #include <algorithm>
 #include <stdio.h>
-#include <planner_core.h>
+#include <movai_ros_planner/planner_core.h>
 
-namespace global_planner {
+namespace movai_ros_planner {
 
 GradientPath::GradientPath(PotentialCalculator* p_calc) :
         Traceback(p_calc), pathStep_(0.5) {
@@ -311,5 +311,5 @@ float GradientPath::gradCell(float* potential, int n) {
     return norm;
 }
 
-} //end namespace global_planner
+} //end namespace movai_ros_planner
 

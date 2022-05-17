@@ -35,33 +35,19 @@
  * Author: Eitan Marder-Eppstein
  *         David V. Lu!!
  *********************************************************************/
-#ifndef _TRACEBACK_H
-#define _TRACEBACK_H
+#ifndef _GRID_PATH_H
+#define _GRID_PATH_H
 #include<vector>
-#include<potential_calculator.h>
+#include<movai_ros_planner/traceback.h>
 
-namespace global_planner {
+namespace movai_ros_planner {
 
-class Traceback {
+class GridPath : public Traceback {
     public:
-        Traceback(PotentialCalculator* p_calc) : p_calc_(p_calc) {}
-        virtual ~Traceback() {}
-        virtual bool getPath(float* potential, double start_x, double start_y, double end_x, double end_y, std::vector<std::pair<float, float> >& path) = 0;
-        virtual void setSize(int xs, int ys) {
-            xs_ = xs;
-            ys_ = ys;
-        }
-        inline int getIndex(int x, int y) {
-            return x + y * xs_;
-        }
-        void setLethalCost(unsigned char lethal_cost) {
-            lethal_cost_ = lethal_cost;
-        }
-    protected:
-        int xs_, ys_;
-        unsigned char lethal_cost_;
-        PotentialCalculator* p_calc_;
+        GridPath(PotentialCalculator* p_calc): Traceback(p_calc){}
+        virtual ~GridPath() {}
+        bool getPath(float* potential, double start_x, double start_y, double end_x, double end_y, std::vector<std::pair<float, float> >& path);
 };
 
-} //end namespace global_planner
+} //end namespace movai_ros_planner
 #endif

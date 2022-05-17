@@ -2,7 +2,7 @@
  *
  * Software License Agreement (BSD License)
  *
- *  Copyright (c) 2015, David V. Lu!!
+ *  Copyright (c) 2008, 2013, Willow Garage, Inc.
  *  All rights reserved.
  *
  *  Redistribution and use in source and binary forms, with or without
@@ -15,7 +15,7 @@
  *     copyright notice, this list of conditions and the following
  *     disclaimer in the documentation and/or other materials provided
  *     with the distribution.
- *   * Neither the name of David V. Lu nor the names of its
+ *   * Neither the name of Willow Garage, Inc. nor the names of its
  *     contributors may be used to endorse or promote products derived
  *     from this software without specific prior written permission.
  *
@@ -32,36 +32,47 @@
  *  ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  *  POSSIBILITY OF SUCH DAMAGE.
  *
- * Author: David V. Lu!!
+ * Author: Eitan Marder-Eppstein
+ *         David V. Lu!!
  *********************************************************************/
-#ifndef GLOBAL_PLANNER_ORIENTATION_FILTER_H
-#define GLOBAL_PLANNER_ORIENTATION_FILTER_H
-#include <nav_msgs/Path.h>
+#ifndef _GRADIENT_PATH_H
+#define _GRADIENT_PATH_H
 
-namespace global_planner {
+#include<movai_ros_planner/traceback.h>
+#include <math.h>
+#include <algorithm>
 
-enum OrientationMode { NONE, FORWARD, INTERPOLATE, FORWARDTHENINTERPOLATE, BACKWARD, LEFTWARD, RIGHTWARD };
+namespace movai_ros_planner {
 
-class OrientationFilter {
+class GradientPath : public Traceback {
     public:
-        OrientationFilter() : omode_(NONE) {}
-    
-    
-        virtual void processPath(const geometry_msgs::PoseStamped& start,
-                                 std::vector<geometry_msgs::PoseStamped>& path);
-                                 
-        void setAngleBasedOnPositionDerivative(std::vector<geometry_msgs::PoseStamped>& path, int index);
-        void interpolate(std::vector<geometry_msgs::PoseStamped>& path, 
-                         int start_index, int end_index);
-                         
-        void setMode(OrientationMode new_mode){ omode_ = new_mode; }
-        void setMode(int new_mode){ setMode((OrientationMode) new_mode); }
+        GradientPath(PotentialCalculator* p_calc);
+        virtual ~GradientPath();
 
-        void setWindowSize(size_t window_size){ window_size_ = window_size; }
-    protected:
-        OrientationMode omode_;
-        int window_size_;
+        void setSize(int xs, int ys);
+
+        //
+        // Path construction
+        // Find gradient at array points, interpolate path
+        // Use step size of pathStep, usually 0.5 pixel
+        //
+        // Some sanity checks:
+        //  1. Stuck at same index position
+        //  2. Doesn't get near goal
+        //  3. Surrounded by high potentials
+        //
+        bool getPath(float* potential, double start_x, double start_y, double end_x, double end_y, std::vector<std::pair<float, float> >& path);
+    private:
+        inline int getNearestPoint(int stc, float dx, float dy) {
+            int pt = stc + (int)round(dx) + (int)(xs_ * round(dy));
+            return std::max(0, std::min(xs_ * ys_ - 1, pt));
+        }
+        float gradCell(float* potential, int n);
+
+        float *gradx_, *grady_; /**< gradient arrays, size of potential array */
+
+        float pathStep_; /**< step size for following gradient */
 };
 
-} //end namespace global_planner
+} //end namespace movai_ros_planner
 #endif

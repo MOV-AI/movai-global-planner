@@ -35,21 +35,21 @@
  * Author: Eitan Marder-Eppstein
  *         David V. Lu!!
  *********************************************************************/
-#include <planner_core.h>
+#include <movai_ros_planner/planner_core.h>
 #include <pluginlib/class_list_macros.h>
 #include <costmap_2d/cost_values.h>
 #include <costmap_2d/costmap_2d.h>
 
-#include <dijkstra.h>
-#include <astar.h>
-#include <grid_path.h>
-#include <gradient_path.h>
-#include <quadratic_calculator.h>
+#include <movai_ros_planner/dijkstra.h>
+#include <movai_ros_planner/astar.h>
+#include <movai_ros_planner/grid_path.h>
+#include <movai_ros_planner/gradient_path.h>
+#include <movai_ros_planner/quadratic_calculator.h>
 
 //register this planner as a BaseGlobalPlanner plugin
-PLUGINLIB_EXPORT_CLASS(global_planner::GlobalPlanner, nav_core::BaseGlobalPlanner)
+PLUGINLIB_EXPORT_CLASS(movai_ros_planner::GlobalPlanner, nav_core::BaseGlobalPlanner)
 
-namespace global_planner {
+namespace movai_ros_planner {
 
 void GlobalPlanner::outlineMap(unsigned char* costarr, int nx, int ny, unsigned char value) {
     unsigned char* pc = costarr;
@@ -419,4 +419,4 @@ void GlobalPlanner::publishPotential(float* potential)
     potential_pub_.publish(grid);
 }
 
-} //end namespace global_planner
+} //end namespace movai_ros_planner
