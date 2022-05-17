@@ -35,9 +35,9 @@
  * Author: Eitan Marder-Eppstein
  *         David V. Lu!!
  *********************************************************************/
-#include <dijkstra.h>
+#include <movai_ros_planner/dijkstra.h>
 #include <algorithm>
-namespace global_planner
+namespace movai_ros_planner
 {
 
     DijkstraExpansion::DijkstraExpansion(PotentialCalculator *p_calc, int nx, int ny) : Expander(p_calc, nx, ny), pending_(NULL), precise_(false), tick_count_(0)
@@ -270,4 +270,4 @@ namespace global_planner
         }
     }
 
-} // end namespace global_planner
+} // end namespace movai_ros_planner

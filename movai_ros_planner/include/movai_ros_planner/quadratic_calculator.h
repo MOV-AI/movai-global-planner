@@ -35,44 +35,20 @@
  * Author: Eitan Marder-Eppstein
  *         David V. Lu!!
  *********************************************************************/
-#ifndef _GRADIENT_PATH_H
-#define _GRADIENT_PATH_H
+#ifndef _QUADRATIC_CALCULATOR_H
+#define _QUADRATIC_CALCULATOR_H
+#include<vector>
+#include<movai_ros_planner/potential_calculator.h>
 
-#include<traceback.h>
-#include <math.h>
-#include <algorithm>
+namespace movai_ros_planner {
 
-namespace global_planner {
-
-class GradientPath : public Traceback {
+class QuadraticCalculator : public PotentialCalculator {
     public:
-        GradientPath(PotentialCalculator* p_calc);
-        virtual ~GradientPath();
+        QuadraticCalculator(int nx, int ny): PotentialCalculator(nx,ny) {}
 
-        void setSize(int xs, int ys);
-
-        //
-        // Path construction
-        // Find gradient at array points, interpolate path
-        // Use step size of pathStep, usually 0.5 pixel
-        //
-        // Some sanity checks:
-        //  1. Stuck at same index position
-        //  2. Doesn't get near goal
-        //  3. Surrounded by high potentials
-        //
-        bool getPath(float* potential, double start_x, double start_y, double end_x, double end_y, std::vector<std::pair<float, float> >& path);
-    private:
-        inline int getNearestPoint(int stc, float dx, float dy) {
-            int pt = stc + (int)round(dx) + (int)(xs_ * round(dy));
-            return std::max(0, std::min(xs_ * ys_ - 1, pt));
-        }
-        float gradCell(float* potential, int n);
-
-        float *gradx_, *grady_; /**< gradient arrays, size of potential array */
-
-        float pathStep_; /**< step size for following gradient */
+        float calculatePotential(float* potential, unsigned char cost, int n, float prev_potential);
 };
 
-} //end namespace global_planner
+
+} //end namespace movai_ros_planner
 #endif

@@ -46,19 +46,19 @@
 #include <vector>
 #include <nav_core/base_global_planner.h>
 #include <nav_msgs/GetPlan.h>
-#include <potential_calculator.h>
-#include <expander.h>
-#include <traceback.h>
-#include <orientation_filter.h>
+#include <movai_ros_planner/potential_calculator.h>
+#include <movai_ros_planner/expander.h>
+#include <movai_ros_planner/traceback.h>
+#include <movai_ros_planner/orientation_filter.h>
 
-namespace global_planner {
+namespace movai_ros_planner {
 
 class Expander;
 class GridPath;
 
 /**
  * @class PlannerCore
- * @brief Provides a ROS wrapper for the global_planner planner which runs a fast, interpolated navigation function on a costmap.
+ * @brief Provides a ROS wrapper for the movai_ros_planner planner which runs a fast, interpolated navigation function on a costmap.
  */
 
 class GlobalPlanner : public nav_core::BaseGlobalPlanner {
@@ -201,6 +201,6 @@ class GlobalPlanner : public nav_core::BaseGlobalPlanner {
         bool outline_map_;
 };
 
-} //end namespace global_planner
+} //end namespace movai_ros_planner
 
 #endif
